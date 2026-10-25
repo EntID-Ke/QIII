@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <queries><package android:name="com.tencent.mobileqq"/><package android:name="io.github.qauxv"/><package android:name="moe.ono"/><package android:name="me.yxp.qfun"/><intent><action android:name="android.intent.action.VIEW"/><category android:name="android.intent.category.BROWSABLE"/><data android:scheme="https"/></intent></queries>
+    <application android:label="QIII" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher" android:theme="@android:style/Theme.Material.Light.NoActionBar" android:allowBackup="false" android:supportsRtl="true" android:usesCleartextTraffic="true">
+        <activity android:name=".MainActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
+        <activity android:name=".BridgeBootstrapActivity" android:exported="true" android:theme="@style/BridgeBootstrapTheme" android:noHistory="true" android:excludeFromRecents="true" android:taskAffinity=""/>
+        <provider android:name=".PolicyProvider" android:authorities="io.github.qqmodulemanager.bridge" android:exported="true" android:grantUriPermissions="true"/>
+        <activity android:name=".DiagnosticExportActivity" android:exported="true" android:excludeFromRecents="true"/>
+        <service android:name=".FeatureService" android:exported="true"/>
+        <meta-data android:name="xposedmodule" android:value="true"/>
+        <meta-data android:name="xposeddescription" android:value="QQ 消息翻译、Google 识图、功能优先级与长按菜单管理"/>
+        <meta-data android:name="xposedminversion" android:value="82"/>
+        <meta-data android:name="xposedscope" android:resource="@array/xposed_scope"/>
+    </application>
+</manifest>
